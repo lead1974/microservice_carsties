@@ -6,6 +6,8 @@ assets/
 # Next.js build output
 .next/
 
+.vscode/
+
 # Static build output
 out/
 

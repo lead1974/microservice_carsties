@@ -10,3 +10,6 @@ dotnet new webapi -o src/AuctionService
 cd src/AuctionService
 dotnet watch
 
+dotnet tool install dotnet-ef -g
+dotnet ef migrations add "InitialCreate" -o Data/Migrations
+
