@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+assets/
+
+# Next.js build output
+.next/
+
+# Static build output
+out/
+
+# Local environment variables
+.env
+.env.local
+
+# Log files
+npm-debug.log*
+yarn-error.log*
+
+# Operating system or editor specific files
+.DS_Store
+*.swp
