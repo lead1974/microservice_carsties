@@ -16,11 +16,25 @@ builder.Services.AddDbContext<AuctionDbContext>(opt =>
 });
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 var app = builder.Build();
 
 app.UseAuthorization();
 app.MapControllers();
+
+try
+{
+    DbInitializer.InitDb(app);
+}
+catch (PostgresException ex)
+{
+    Console.WriteLine(ex.Message);
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
+
 
 app.Run();
 
