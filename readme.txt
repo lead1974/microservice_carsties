@@ -23,3 +23,42 @@ dotnet ef database update
 # 13 - seeding database
 dotnet ef database drop
 dotnet watch
+
+# 23 Search SearchService
+dotnet new webapi -o src/SearchService 
+dotnet sln add src/SearchService
+nuget: install mongodb.entities, automapper dependencyinjections
+dotnet build - to verify project works, no errors
+
+# install mongodb
+# insert entry for mongodb in docker-compose.yml
+docker compose up -d
+# 24 install mongodb for vscode extension and connect using setup in docker-compose.yml
+  mongodb:
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=
+      - MONGO_INITDB_ROOT_PASSWORD=
+# 27 https://mongodb-entities.com/
+# 31 adding SearchService/Services/AuctionSvcHttpClient.cs
+# delete mongodb inside docker client, stop the SearchService
+# restart docker : docker compose up -d
+docker volume list
+DRIVER    VOLUME NAME
+local     carsties_mongodata
+local     carsties_pgdata
+# to remove mongodb from docker instance: 
+docker volume rm carsties_mongodata
+
+# take docker down
+docker compose down
+
+# 32 nuget install Microsoft.Extensions.Http.Polly into SearchService
+# using polly to continue retry AuctionService every 3 seconds until AuctionService is backup and running
+# in SerachService.Program.cs:
+static IAsyncPolicy<HttpResponseMessage> GetPolicy()
+    => HttpPolicyExtensions
+        .HandleTransientHttpError()
+        .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
+        .WaitAndRetryForeverAsync(_ => TimeSpan.FromSeconds(3));
+# adding app.Lifetime.ApplicationStarted.Register to ensure SearchService is started!
