@@ -74,3 +74,14 @@ dotnet add reference ../../src/Contracts
 
 # 42 adding a message outbox for RabbitMQ
 dotnet ef migrations add Outbox
+
+# 50 Identity Server
+dotnet new install Duende.IdentityServer.Templates
+# we need : Duende IdentityServer with ASP.NET Core Identity            isaspid        [C#]      Web/IdentityServer
+# create new service project
+dotnet new isaspid -o src/IdentityService
+dotnet sln add src/IdentityService
+
+# 52 migrating to postgresdb instead of sqllite
+remove Migration folder from IdentityService
+dotnet ef migrations add "InitialCreate" -o Data/Migrations
