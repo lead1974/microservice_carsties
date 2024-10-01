@@ -12,7 +12,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - /var/lib/postresql/data
+      - pgdata:/var/lib/postresql/data
+    restart: unless-stopped
     # networks:
     #   custom:
   mongodb:
@@ -23,17 +24,16 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /var/lib/mongodb/data
-# volumes:
-#   pgdata:
-#   mongodata:
-    # networks:
-    #   custom:
-  # rabbitmq:
-  #   image: rabbitmq:3-management-alpine
-  #   ports:
-  #     - 5672:5672
-  #     - 15672:15672
+      - mongodata:/var/lib/mongodb/data
+    restart: unless-stopped
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - 5672:5672
+      - 15672:15672
+    restart: unless-stopped
+
   #   networks:
   #     custom:
   # auction-svc:
@@ -170,3 +170,7 @@ services:
   #   volumes:
   #     - /var/run/docker.sock:/tmp/docker.sock:ro
   #     - ./devcerts:/etc/nginx/certs
+
+volumes:
+  pgdata:
+  mongodata:

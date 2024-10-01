@@ -16,8 +16,9 @@ public class AuctionDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // modelBuilder.AddInboxStateEntity();
-        // modelBuilder.AddOutboxMessageEntity();
-        // modelBuilder.AddOutboxStateEntity();
+        //# 42 run dotnet ef migrations add Outbox
+        modelBuilder.AddInboxStateEntity();
+        modelBuilder.AddOutboxMessageEntity();
+        modelBuilder.AddOutboxStateEntity();
     }
 }

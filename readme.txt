@@ -62,3 +62,15 @@ static IAsyncPolicy<HttpResponseMessage> GetPolicy()
         .OrResult(msg => msg.StatusCode == HttpStatusCode.NotFound)
         .WaitAndRetryForeverAsync(_ => TimeSpan.FromSeconds(3));
 # adding app.Lifetime.ApplicationStarted.Register to ensure SearchService is started!
+
+# 36 RabbitMQ http://localhost:15672/#/ u/p : guest/guest
+# 37 https://masstransit.io/documentation
+# adding class library for RabbitMQ Contracts between Auction and Search Services
+dotnet new classlib -o src/Contracts
+dotnet sln add src/Contracts //add to solution
+# add Contracts as a project reference:
+cd src/AuctionService
+dotnet add reference ../../src/Contracts
+
+# 42 adding a message outbox for RabbitMQ
+dotnet ef migrations add Outbox

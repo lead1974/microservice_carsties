@@ -111,3 +111,5 @@ C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\tr\Microsof
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\obj\Debug\net8.0\AuctionService.sourcelink.json
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Contracts.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Contracts.pdb
