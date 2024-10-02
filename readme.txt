@@ -90,3 +90,9 @@ dotnet ef migrations add "InitialCreate" -o Data/Migrations
 dotnet new web -o src/GatewayService
 dotnet sln add src/GatewayService
 nuget: install Yarp.ReverseProxy
+
+# 74 Dockerizing AuctionService
+# create Dockerfile and run in sln level directory 
+docker build -f src/AuctionService/Dockerfile -t testing123 .
+# 75 modify docker-compose.yml file
+docker compose build auction-svc

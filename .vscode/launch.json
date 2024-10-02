@@ -2,6 +2,24 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Docker .NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "1", // Alternatively, use "pickProcess" to select the process
+            "pipeTransport": {
+                "pipeCwd": "${workspaceFolder}",
+                "pipeProgram": "docker",
+                "pipeArgs": [
+                    "exec", "-i", "carsties-identity-svc-1"
+                ],
+                "debuggerPath": "/vsdbg/vsdbg", // Path where the debugger is installed in the container
+                "quoteArgs": false
+            },
+            "sourceFileMap": {
+                "/app": "${workspaceFolder}"
+            }
+        },
+        {
             // Use IntelliSense to find out which attributes exist for C# debugging
             // Use hover for the description of the existing attributes
             // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
