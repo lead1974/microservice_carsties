@@ -1,6 +1,7 @@
 using AuctionService;
 using AuctionService.Data;
 using MassTransit;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 
@@ -45,10 +46,19 @@ builder.Services.AddMassTransit(x =>
     });
 });
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServiceUrl"];
+        options.RequireHttpsMetadata = false;
+        options.TokenValidationParameters.ValidateAudience = false;
+        options.TokenValidationParameters.NameClaimType = "username";
+    });
 
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
 var app = builder.Build();
 
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 

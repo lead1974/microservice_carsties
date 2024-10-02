@@ -113,3 +113,11 @@ C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\zh-Hant\Mic
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\obj\Debug\net8.0\AuctionService.sourcelink.json
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Contracts.dll
 C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Contracts.pdb
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Andrey\LabWeb\nextjs\carsties\src\AuctionService\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
