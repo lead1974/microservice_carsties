@@ -85,3 +85,8 @@ dotnet sln add src/IdentityService
 # 52 migrating to postgresdb instead of sqllite
 remove Migration folder from IdentityService
 dotnet ef migrations add "InitialCreate" -o Data/Migrations
+
+# 63 adding Gateway service
+dotnet new web -o src/GatewayService
+dotnet sln add src/GatewayService
+nuget: install Yarp.ReverseProxy
