@@ -18,13 +18,15 @@ public class AuctionsController : ControllerBase
     private readonly IAuctionRepository _repo;
     private readonly IMapper _mapper;
     private readonly IPublishEndpoint _publishEndpoint;
+    //private readonly ILogger<AuctionsController> _logger;
 
     public AuctionsController(IAuctionRepository repo, IMapper mapper,
-         IPublishEndpoint publishEndpoint)
+         IPublishEndpoint publishEndpoint)//, ILogger<AuctionsController> logger)
     {
         _repo = repo;
         _mapper = mapper;
         _publishEndpoint = publishEndpoint;
+        //_logger = logger;
     }
 
     [HttpGet]
@@ -50,7 +52,7 @@ public class AuctionsController : ControllerBase
         var auction = _mapper.Map<Auction>(auctionDto);
 
         auction.Seller = User.Identity.Name;
-
+        // _logger.LogInformation("### auction.Seller is : " + auction.Seller);
         _repo.AddAuction(auction);
 
         var newAuction = _mapper.Map<AuctionDto>(auction);
