@@ -9,6 +9,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddControllers();
+// Add CORS policy to allow requests from specific origins
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy("AllowSpecificOrigin", builder =>
+//     {
+//         builder.WithOrigins("http://localhost:3000") // Allow only your Next.js app
+//                .AllowAnyMethod()                     // Allow any HTTP method (GET, POST, etc.)
+//                .AllowAnyHeader();                    // Allow any headers
+//     });
+// });
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddHttpClient<AuctionSvcHttpClient>().AddPolicyHandler(GetPolicy());
 builder.Services.AddMassTransit(x =>
@@ -44,6 +55,7 @@ builder.Services.AddMassTransit(x =>
 
 var app = builder.Build();
 
+// app.UseCors("AllowSpecificOrigin");
 app.UseAuthorization();
 app.MapControllers();
 
