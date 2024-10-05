@@ -103,12 +103,14 @@ docker compose up -d
 npx create-next-app@latest
 npm run dev
 
-npm install zustand
+
 npm install react-icons
 npm install next-auth
 npm install flowbite-react
 npm install react-countdown
 npm install @tailwindcss/aspect-ratio
 npm install cors
+npm install zustand - state managment
+npm install query-string -- allows 
 
 

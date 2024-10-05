@@ -7,6 +7,17 @@ import { fetchWrapper } from "@/app/lib/fetchWrapper";
 
 // import { FieldValues } from "react-hook-form";
 
+// export async function getAuctionData(pageNumber: number = 1): Promise<PagedResult<Auction>> {
+//     try {
+//         const res = await fetch(`http://localhost:6001/search?pageSize=4&pageNumber=${pageNumber}`);
+//         if (!res.ok) throw new Error('Failed to fetch data');
+//         return res.json();
+//     } catch (error) {
+//         // You can either return a default value or rethrow the error
+//         throw error;
+//     }
+// }
+
 export async function getData(query: string): Promise<PagedResult<Auction>> {
     return await fetchWrapper.get(`search/${query}`)
 }

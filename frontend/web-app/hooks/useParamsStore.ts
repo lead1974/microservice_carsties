@@ -24,7 +24,7 @@ const initialState: State = {
     pageCount: 1,
     searchTerm: '',
     searchValue: '',
-    orderBy: 'make',
+    orderBy: 'new',
     filterBy: 'live',
     seller: undefined,
     winner: undefined

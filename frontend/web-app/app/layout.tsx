@@ -21,13 +21,12 @@ export default async function RootLayout({
       <body>
         {/* <ToasterProvider /> */}
         <Navbar />
-        {/* <main className='container mx-auto px-5 pt-10'>
-          <SignalRProvider user={user}>
-           
-          </SignalRProvider>
-
-        </main> */}
-         {children}
+        <main className='container mx-auto px-5 pt-10'>
+          {/* <SignalRProvider user={user}>
+          {children}
+          </SignalRProvider> */}
+          {children}
+        </main>
       </body>
     </html>
   )
