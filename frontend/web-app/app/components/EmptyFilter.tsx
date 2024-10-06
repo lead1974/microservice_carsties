@@ -26,9 +26,9 @@ export default function EmptyFilter({
     return (
         <div className='h-[40vh] flex flex-col gap-2 justify-center items-center shadow-lg'>
             <Heading title={title} subtitle={subtitle} center />
-            <div className='mt-4'>
+            <div className='mt-4 text-black'>
                 {showReset && (
-                    <Button outline onClick={reset}>Remove Filters</Button>
+                    <Button  onClick={reset}>Remove Filters</Button>
                 )}
                 {showLogin && (
                     <Button outline onClick={() => signIn('id-server', {callbackUrl})}>Login</Button>

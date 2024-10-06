@@ -2,7 +2,6 @@
 
 import { useParamsStore } from '@/hooks/useParamsStore';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa';
 
 export default function Search() {
@@ -12,9 +11,14 @@ export default function Search() {
     const setSearchValue = useParamsStore(state => state.setSearchValue);
     const searchValue = useParamsStore(state => state.searchValue);
 
-    function onChange(event: any) {
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchValue(event.target.value);
-    }
+        console.log('Searching for:', searchValue);
+    };
+
+    const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') search();
+    };
 
     function search() {
         if (pathname !== '/') router.push('/');
@@ -24,9 +28,7 @@ export default function Search() {
     return (
         <div className='flex w-[50%] items-center border-2 rounded-full py-2 shadow-sm justify-between' >
             <input
-                onKeyDown={(e: any) => {
-                    if (e.key === 'Enter') search();
-                }}
+                onKeyDown={onKeyDown} // Use the typed event handler
                 value={searchValue}
                 onChange={onChange}
                 type="text"

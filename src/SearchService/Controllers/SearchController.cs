@@ -12,9 +12,20 @@ public class SearchController : ControllerBase
     {
         var query = DB.PagedSearch<Item, Item>();
 
+        // if (!string.IsNullOrEmpty(searchParams.SearchTerm))
+        // {
+        //     query.Match(Search.Full, searchParams.SearchTerm).SortByTextScore();
+        // }
+
         if (!string.IsNullOrEmpty(searchParams.SearchTerm))
         {
-            query.Match(Search.Full, searchParams.SearchTerm).SortByTextScore();
+            // Use regex for partial string matching
+            string pattern = searchParams.SearchTerm.Trim().ToLower();
+            query.Match(x => x.Make.Trim().ToLower().Contains(pattern) ||
+                             x.Model.Trim().ToLower().Contains(pattern) ||
+                             x.Winner.Trim().ToLower().Equals(pattern) ||
+                             x.Seller.Trim().ToLower().Equals(pattern) ||
+                             x.Color.ToLower().Equals(pattern));
         }
 
         query = searchParams.OrderBy switch

@@ -9,6 +9,7 @@ import Filters from './Filters';
 import { useShallow } from 'zustand/shallow';
 import { useParamsStore } from '@/hooks/useParamsStore';
 import qs from 'query-string';
+import EmptyFilter from '../components/EmptyFilter';
 
 
  function Listings() {
@@ -46,14 +47,19 @@ if (loading) return <h3>Loading...</h3>
   return (
     <>
     <Filters/>
-    <div className='grid grid-cols-4 gap-6'>
-      {data?.results.map((auction) => (
-          <AuctionCard auction={auction} key={auction.id} />
-      ))}
-    </div>
-    <div className='flex justify-center mt-4'>
-      <AppPagination pageChanged={setPageNumber} currentPage={params.pageNumber} pageCount={data!.pageCount} />
-    </div>
+    {data?.totalCount===0? <EmptyFilter showReset={true} /> : 
+    (<>
+      <div className='grid grid-cols-4 gap-6'>
+        {data?.results.map((auction) => (
+            <AuctionCard auction={auction} key={auction.id} />
+        ))}
+      </div>
+      <div className='flex justify-center mt-4'>
+        <AppPagination pageChanged={setPageNumber} currentPage={params.pageNumber} pageCount={data!.pageCount} />
+      </div>
+    </>) }
+
+
     </>
   )
 }

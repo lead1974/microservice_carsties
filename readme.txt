@@ -96,6 +96,8 @@ nuget: install Yarp.ReverseProxy
 docker build -f src/AuctionService/Dockerfile -t testing123 .
 # 75 modify docker-compose.yml file
 docker compose build auction-svc
+docker compose build search-svc
+docker compose build identity-svc
 docker compose down 
 docker compose up -d
 
@@ -103,9 +105,13 @@ docker compose up -d
 npx create-next-app@latest
 npm run dev
 
+# troubleshoot long compilation TimeSpan
+npm install -g clinic
+clinic doctor -- npm run dev
+
 
 npm install react-icons
-npm install next-auth
+npm install next-auth@latest
 npm install flowbite-react
 npm install react-countdown
 npm install @tailwindcss/aspect-ratio

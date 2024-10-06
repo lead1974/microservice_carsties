@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Image from 'next/image'
-import AuctionCard from './AuctionCard'
+// import AuctionCard from './AuctionCard'
 
 type Props = {
     imageUrl: string
