@@ -1,12 +1,12 @@
 import React from 'react'
 import Search from './Search';
 import Logo from './Logo';
-// import LoginButton from './LoginButton';
-// import { getCurrentUser } from '../actions/authActions';
-// import UserActions from './UserActions';
+import LoginButton from './LoginButton';
+import { getCurrentUser } from '../actions/authActions';
+import UserActions from './UserActions';
 
 export default async function Navbar() {
-  // const user = await getCurrentUser();
+  const user = await getCurrentUser();
 
   return (
     <header className='
@@ -14,13 +14,13 @@ export default async function Navbar() {
     '>
       <Logo />
       <Search />
-      {/* {user ? (
+
+      {user ? (
         <UserActions user={user} />
       ) : (
         <LoginButton />
-      )} */}
+      )}
 
-      Login
     </header>
   )
 }

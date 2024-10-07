@@ -111,7 +111,7 @@ clinic doctor -- npm run dev
 
 
 npm install react-icons
-npm install next-auth@latest
+
 npm install flowbite-react
 npm install react-countdown
 npm install @tailwindcss/aspect-ratio
@@ -119,4 +119,11 @@ npm install cors
 npm install zustand - state managment
 npm install query-string -- allows 
 
+# 105 review SearchService of ordering bug and rebuilding docker container after making a change
+
+# next-auth https://authjs.dev/getting-started/installation
+npm install next-auth@latest
+npx auth secret
+# https://stackoverflow.com/questions/71385330/next-auth-jwedecryptionfailed
+# https://next-auth.js.org/warnings#nextauth_url
 
