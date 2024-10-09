@@ -137,4 +137,25 @@ npm install @types/react-datepicker
 # 125
 npm install react-hot-toast
 
+# section 11 creating bidding service
+# 131 
+cd /carsties
+dotnet new webapi -o src/BiddingService
+dotnet sln add src/BiddingService
+cd src/BiddingService
+dotnet add reference ../../src/Contracts
+
+# 139 rebuild all docker Services
+docker compose down
+docker compose build auction-svc
+docker compose build search-svc
+docker compose build identity-svc
+docker compose build gateway-svc
+docker compose build bidding-svc
+
+# BissingService/Services/CheckAuctionFinished.cs
+setting up background service that constantly running 
+has a log enabled
+
+
 

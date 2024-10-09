@@ -32,7 +32,6 @@ const initialState: State = {
 
 export const useParamsStore = create<State & Actions>()((set) => ({
     ...initialState,
-
     setParams: (newParams: Partial<State>) => {
         set((state) => {
             if (newParams.pageNumber) {
