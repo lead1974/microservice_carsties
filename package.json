@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "date-fns": "^4.1.0",
+    "react-datepicker": "^7.4.0",
+    "react-hook-form": "^7.53.0",
+    "react-hot-toast": "^2.4.1"
+  }
+}

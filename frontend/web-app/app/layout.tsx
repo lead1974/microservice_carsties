@@ -1,6 +1,6 @@
-// import { getCurrentUser } from './actions/authActions'
+import { getCurrentUser } from './actions/authActions'
 // import SignalRProvider from './providers/SignalRProvider'
-// import ToasterProvider from './providers/ToasterProvider'
+import ToasterProvider from './providers/ToasterProvider'
 import './globals.css'
 import Navbar from './nav/Navbar'
 
@@ -15,11 +15,11 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const user = await getCurrentUser();
+  const user = await getCurrentUser();
   return (
     <html lang="en">
       <body>
-        {/* <ToasterProvider /> */}
+        <ToasterProvider />
         <Navbar />
         <main className='container mx-auto px-5 pt-10'>
           {/* <SignalRProvider user={user}>

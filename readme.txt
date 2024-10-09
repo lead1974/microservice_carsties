@@ -127,3 +127,14 @@ npx auth secret
 # https://stackoverflow.com/questions/71385330/next-auth-jwedecryptionfailed
 # https://next-auth.js.org/warnings#nextauth_url
 
+# 118 create react-hook-form
+npm install react-hook-form 
+# 122 
+npm install react-datepicker@latest
+npm install date-fns
+npm install @types/react-datepicker
+
+# 125
+npm install react-hot-toast
+
+

@@ -1,11 +1,11 @@
 'use server'
 
 import { Auction, Bid, PagedResult } from "@/types";
-// import { revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { fetchWrapper } from "@/app/lib/fetchWrapper";
 import { getTokenWorkaround } from "./authActions";
 
-// import { FieldValues } from "react-hook-form";
+import { FieldValues } from "react-hook-form";
 
 // export async function getAuctionData(pageNumber: number = 1): Promise<PagedResult<Auction>> {
 //     try {
@@ -40,14 +40,14 @@ export async function updateAuctionTest() {
     // return await res.json();
 }
 
-// export async function createAuction(data: FieldValues) {
-//     return await fetchWrapper.post('auctions', data);
-// }
-// export async function updateAuction(data: FieldValues, id: string) {
-//     const res = await fetchWrapper.put(`auctions/${id}`, data);
-//     revalidatePath(`/auctions/${id}`);
-//     return res;
-// }
+export async function createAuction(data: FieldValues) {
+    return await fetchWrapper.post('auctions', data);
+}
+export async function updateAuction(data: FieldValues, id: string) {
+    const res = await fetchWrapper.put(`auctions/${id}`, data);
+    revalidatePath(`/auctions/${id}`);
+    return res;
+}
 export async function getDetailedViewData(id: string): Promise<Auction> {
     return await fetchWrapper.get(`auctions/${id}`);
 }

@@ -5,7 +5,7 @@ const baseUrl = process.env.API_URL;
 async function get(url: string) {
     const requestOptions = {
         method: 'GET',
-        // header: await getHeaders()
+        header: await getHeaders()
     }
 
     const response = await fetch(baseUrl + url, requestOptions);
@@ -54,6 +54,7 @@ async function getHeaders() {
 async function handleResponse(response: Response) {
     const text = await response.text();
     // const data = text && JSON.parse(text);
+
     let data;
     try {
         data = JSON.parse(text);
