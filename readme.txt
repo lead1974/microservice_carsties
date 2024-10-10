@@ -157,5 +157,19 @@ docker compose build bidding-svc
 setting up background service that constantly running 
 has a log enabled
 
+# 142 install grpc.aspnetcore package into AuctionService from nuget
+dotnet add package Grpc.AspNetCore --> AuctionService (server)
+dotnet add package Google.Protobuf --> BiddingService (client)
+dotnet add package Grpc.Tools  --> BiddingService (client)
+dotnet add package Grpc.Net.Client  --> BiddingService (client)
+dotnet remove package Google.Protobuf
+dotnet clean
+
+# 146
+docker compose build
+
+
+
+
 
 

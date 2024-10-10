@@ -13,14 +13,13 @@ public class BidsController : ControllerBase
 {
     private readonly IMapper _mapper;
     private readonly IPublishEndpoint _publishEndpoint;
-    // private readonly GrpcAuctionClient _grpcClient;
+    private readonly GrpcAuctionClient _grpcClient;
 
-    public BidsController(IMapper mapper, IPublishEndpoint publishEndpoint)
-    // ,GrpcAuctionClient grpcClient)
+    public BidsController(IMapper mapper, IPublishEndpoint publishEndpoint ,GrpcAuctionClient grpcClient)
     {
         _mapper = mapper;
         _publishEndpoint = publishEndpoint;
-        // _grpcClient = grpcClient;
+        _grpcClient = grpcClient;
     }
 
     [Authorize]
@@ -31,7 +30,7 @@ public class BidsController : ControllerBase
 
         if (auction == null)
         {
-            // auction = _grpcClient.GetAuction(auctionId);
+            auction = _grpcClient.GetAuction(auctionId);
 
             if (auction == null) return BadRequest("Cannot accept bids on this auction at this time");
         }
