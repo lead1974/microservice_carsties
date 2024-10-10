@@ -168,6 +168,11 @@ dotnet clean
 # 146
 docker compose build
 
+# section 12 NotificationService
+dotnet new web -o src/NotificationService
+dotnet sln add src/NotificationService
+cd src/NotificationService
+dotnet add reference ../../src/Contracts
 
 
 
