@@ -174,6 +174,9 @@ dotnet sln add src/NotificationService
 cd src/NotificationService
 dotnet add reference ../../src/Contracts
 
+# 165 Add SignalR to NextJS
+npm install @microsoft/signalr@latest
+
 
 
 

@@ -10,6 +10,7 @@ import { useShallow } from 'zustand/shallow';
 import { useParamsStore } from '@/hooks/useParamsStore';
 import qs from 'query-string';
 import EmptyFilter from '../components/EmptyFilter';
+import { useAuctionStore } from '@/hooks/useAuctionStore';
 
 
  function Listings() {
@@ -18,7 +19,7 @@ import EmptyFilter from '../components/EmptyFilter';
   // const [pageCount,setPageCount] = useState(0);
   // const [pageNumber,setPageNumber] = useState(1);
 
-  const [data, setData] = useState<PagedResult<Auction>>();
+  // const [data, setData] = useState<PagedResult<Auction>>();
   const params = useParamsStore(useShallow(state => ({
     pageNumber: state.pageNumber,
     pageSize: state.pageSize,
@@ -28,6 +29,14 @@ import EmptyFilter from '../components/EmptyFilter';
     seller: state.seller,
     winner: state.winner
     })));
+  
+  const data = useAuctionStore(useShallow(state => ({
+      auctions: state.auctions,
+      totalCount: state.totalCount,
+      pageCount: state.pageCount
+  })));
+
+  const setData = useAuctionStore(state => state.setData);
 
   const setParams = useParamsStore(state => state.setParams);
   const url = qs.stringifyUrl({ url: '', query: params })
@@ -50,7 +59,7 @@ if (loading) return <h3>Loading...</h3>
     {data?.totalCount===0? <EmptyFilter showReset={true} /> : 
     (<>
       <div className='grid grid-cols-4 gap-6'>
-        {data?.results.map((auction) => (
+        {data?.auctions.map((auction) => (
             <AuctionCard auction={auction} key={auction.id} />
         ))}
       </div>

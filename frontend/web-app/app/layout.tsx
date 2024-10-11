@@ -1,5 +1,5 @@
 import { getCurrentUser } from './actions/authActions'
-// import SignalRProvider from './providers/SignalRProvider'
+import SignalRProvider from './providers/SignalRProvider'
 import ToasterProvider from './providers/ToasterProvider'
 import './globals.css'
 import Navbar from './nav/Navbar'
@@ -22,10 +22,9 @@ export default async function RootLayout({
         <ToasterProvider />
         <Navbar />
         <main className='container mx-auto px-5 pt-10'>
-          {/* <SignalRProvider user={user}>
+          <SignalRProvider user={user}>
           {children}
-          </SignalRProvider> */}
-          {children}
+          </SignalRProvider>
         </main>
       </body>
     </html>
