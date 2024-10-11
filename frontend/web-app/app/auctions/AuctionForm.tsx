@@ -8,8 +8,7 @@ import DateInput from '../components/DateInput';
 import { createAuction, updateAuction } from '../actions/auctionActions';
 import { usePathname, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
-import { Auction } from '@/types';
-import { BsStopwatchFill } from 'react-icons/bs';
+import { Auction, CustomError } from '@/types';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 
 type Props = {
@@ -55,8 +54,9 @@ export default function AuctionForm({ auction }: Props) {
                  throw res.error;
             }
             router.push(`/auctions/details/${id}`)
-        } catch (error: any) {
-            toast.error(error.status + ' ' + error.message)
+        } catch (error) {
+            const err = error as CustomError;
+            toast.error(`${err.status || 'Error'}: ${err.message}`);
         }
     }
 

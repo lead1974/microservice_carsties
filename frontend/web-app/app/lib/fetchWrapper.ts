@@ -12,7 +12,7 @@ async function get(url: string) {
     return await handleResponse(response);
 }
 
-async function post(url: string, body: {}) {
+async function post(url: string, body: object) {
     const requestOptions = {
         method: 'POST',
         headers: await getHeaders(),
@@ -22,7 +22,7 @@ async function post(url: string, body: {}) {
     return await handleResponse(response);
 }
 
-async function put(url: string, body: {}) {
+async function put(url: string, body: object) {
     const requestOptions = {
         method: 'PUT',
         headers: await getHeaders(),
@@ -44,7 +44,8 @@ async function del(url: string) {
 
 async function getHeaders() {
     const token = await getTokenWorkaround();
-    const headers = { 'Content-type': 'application/json' } as any;
+    const headers: Record<string, string> = { 'Content-type': 'application/json' };
+    // const headers = { 'Content-type': 'application/json' } as any;
     if (token) {
         headers.Authorization = 'Bearer ' + token.access_token
     }

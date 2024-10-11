@@ -39,3 +39,10 @@ export type Auction = {
     seller: string
     amount?: number
   }
+
+  
+  export type CustomError = {
+  status?: number; // or any other specific type
+  message: string;
+}
+

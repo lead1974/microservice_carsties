@@ -1,8 +1,8 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
 import { getToken } from "next-auth/jwt";
-import {cookies, headers} from 'next/headers';
-import { NextApiRequest } from "next";
+import { cookies, headers } from 'next/headers';
+import { NextRequest } from 'next/server'; // Update this to NextRequest
+import { authOptions } from "../api/auth/authOptions";
 
 export async function getSession() {
     return await getServerSession(authOptions);
@@ -14,9 +14,10 @@ export async function getCurrentUser() {
 
         if (!session) return null;
 
-        return session.user
+        return session.user;
 
     } catch (error) {
+        console.log(error);
         return null;
     }
 }
@@ -29,7 +30,7 @@ export async function getTokenWorkaround() {
                 .getAll()
                 .map(c => [c.name, c.value])
         )
-    } as NextApiRequest;
+    } as unknown as NextRequest; // Change to NextRequest
 
-    return await getToken({req});
+    return await getToken({ req });
 }

@@ -33,10 +33,10 @@ export default function BidList({ user, auction }: Props) {
 
     useEffect(() => {
         getBidsForAuction(auction.id)
-            .then((res: any) => {
-                if (res.error) {
-                    throw res.error
-                }
+            .then((res: Bid[]) => {
+                // if (res.error) {
+                //     throw res.error
+                // }
                 setBids(res as Bid[]);
             }).catch(err => {
                 toast.error(err.message);

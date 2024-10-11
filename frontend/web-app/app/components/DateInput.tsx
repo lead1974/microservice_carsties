@@ -15,7 +15,6 @@ export default function DateInput(props: Props) {
     return (
         <>
         <div className='block'>
-            {/* @ts-ignore: Ignoring TypeScript error for demonstration */}
             <DatePicker
                     {...props}
                     {...field}
