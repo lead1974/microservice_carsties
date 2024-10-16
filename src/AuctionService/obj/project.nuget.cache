@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ChWCcsmWtQ4=",
+  "dgSpecHash": "SUBTqKHNv+c=",
   "success": true,
   "projectFilePath": "C:\\Andrey\\LabWeb\\nextjs\\carsties\\src\\AuctionService\\AuctionService.csproj",
   "expectedPackageFiles": [
@@ -48,6 +48,8 @@
     "C:\\Users\\aparahnevi\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.1.2\\microsoft.identitymodel.tokens.7.1.2.nupkg.sha512",
     "C:\\Users\\aparahnevi\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
     "C:\\Users\\aparahnevi\\.nuget\\packages\\npgsql.entityframeworkcore.postgresql\\8.0.4\\npgsql.entityframeworkcore.postgresql.8.0.4.nupkg.sha512",
+    "C:\\Users\\aparahnevi\\.nuget\\packages\\polly\\8.4.2\\polly.8.4.2.nupkg.sha512",
+    "C:\\Users\\aparahnevi\\.nuget\\packages\\polly.core\\8.4.2\\polly.core.8.4.2.nupkg.sha512",
     "C:\\Users\\aparahnevi\\.nuget\\packages\\rabbitmq.client\\6.8.1\\rabbitmq.client.6.8.1.nupkg.sha512",
     "C:\\Users\\aparahnevi\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
     "C:\\Users\\aparahnevi\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.1.2\\system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",

@@ -54,6 +54,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// # 202
 await Policy.Handle<TimeoutException>()
     .WaitAndRetryAsync(5, retryAttempt => TimeSpan.FromSeconds(10))
     .ExecuteAndCaptureAsync(async () =>

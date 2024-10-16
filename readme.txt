@@ -177,6 +177,15 @@ dotnet add reference ../../src/Contracts
 # 165 Add SignalR to NextJS
 npm install @microsoft/signalr@latest
 
+# 174 npm install sharp
+
+# 178 SSL
+mkcert -install
+mkdir devcerts
+cd devcerts 
+# create certificates:
+mkcert -key-file carsties.local.key -cert-file carsties.local.crt app.carsties.local api.carsties.local id.carsties.local
+
 
 
 
